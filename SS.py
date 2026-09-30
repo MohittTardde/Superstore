@@ -6,7 +6,7 @@ from sqlalchemy import create_engine
 import os
 import urllib
 
-df = pd.read_excel(r"C:\Users\MohitTarade\Desktop\Superstore1.xlsx")
+df = pd.read_excel(r"C:\Users\MohitTarade\Desktop\\Superstore1.xlsx")
 
 df.drop(["Row ID", "Customer Name"], axis=1, inplace=True)
 

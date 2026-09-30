@@ -45,7 +45,7 @@ US_states = df[df["Country/Region"] == "United States"]["State/Province"]
 
 df2 = df.groupby(["Segment"]).agg({"Quantity":"sum", "Days_Delivered": "mean"}).round(2)
 df3= pd.DataFrame(df2)
-df3.to_csv(r"C:\Users\MohitTarade\Desktop\\Python\df3.csv")
+# df3.to_csv(r"C:\Users\MohitTarade\Desktop\Python\df3.csv")
 
 # Send data to SQL for quering
 server = "INLT-F194ZC4\PRIMARY1"

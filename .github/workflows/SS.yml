@@ -1,1 +1,29 @@
+name: SS
 
+on:
+  schedule:
+    # Runs every 10 mins from 3:30 PM–11:30 PM IST / 5:00 AM–1:00 PM EST (Mon–Fri)
+    - cron: "*/10 10-18 * * 1-5"
+  workflow_dispatch:
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install pandas numpy sqlalchemy openpyxl create_engine os
+
+      - name: Run script
+        # env:
+        #   GOOGLE_SERVICE_ACCOUNT: ${{ secrets.GOOGLE_SERVICE_ACCOUNT }}
+        run: |
+          python SS.py

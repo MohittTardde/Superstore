@@ -2,8 +2,8 @@ name: SS
 
 on:
   schedule:
-  # Runs once a day at 10:00 PM IST (Mon-Fri)
-  - cron: "30 16 * * 1-5"
+    # Runs once a day at 10:00 PM IST (Mon-Fri)
+    - cron: "30 16 * * 1-5"
   workflow_dispatch:
 
 jobs:

@@ -17,7 +17,7 @@ import os
 import urllib.parse
 import pyodbc
 
-df = pd.read_excel("C:/Users/MohitTarade/Desktop/Superstore1.xlsx")
+df = pd.read_excel("Superstore1.xlsx")
 
 df.drop(["Row ID", "Customer Name"], axis=1, inplace=True)
 

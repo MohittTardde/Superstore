@@ -1,13 +1,23 @@
+# import pandas as pd
+# import numpy as np
+# import openpyxl
+# import sqlalchemy
+# from sqlalchemy import create_engine
+# import os
+# import urllib
+
+# df = pd.read_excel(r"C:\Users\MohitTarade\Desktop\Superstore1.xlsx")
+
 import pandas as pd
 import numpy as np
 import openpyxl
 import sqlalchemy
 from sqlalchemy import create_engine
 import os
-import urllib
+import urllib.parse
 import pyodbc
 
-df = pd.read_excel("Superstore1.xlsx")
+df = pd.read_excel("C:/Users/MohitTarade/Desktop/Superstore1.xlsx")
 
 df.drop(["Row ID", "Customer Name"], axis=1, inplace=True)
 
@@ -61,24 +71,32 @@ US_states = df[df["Country/Region"] == "United States"]["State/Province"]
 
 df2 = df.groupby(["Segment"]).agg({"Quantity":"sum", "Days_Delivered": "mean"}).round(2)
 df3= pd.DataFrame(df2)
-# df3.to_csv(r"C:\Users\MohitTarade\Desktop\\Python\df3.csv")
 
-# Send data to SQL for quering
-server = "INLT-F194ZC4\PRIMARY1"
-database = "New"
+df.to_csv("C:/Users/MohitTarade/Desktop/Python/df.csv")
 
-params = urllib.parse.quote_plus(
-    "DRIVER={ODBC Driver 18 for SQL Server};"
-    f"SERVER={server};"
-    f"DATABASE={database};"
-    "Trusted_Connection=yes;"
-)
-engine = create_engine(
-    f"mssql+pyodbc:///?odbc_connect={params}"
-)
-dfm = df
-dfm.to_sql("Superstore", 
-    con=engine,
-    if_exists="append",
-    index=False)
+
+# # df3.to_csv(r"C:\Users\MohitTarade\Desktop\\Python\df3.csv")
+
+# # Send data to SQL for quering
+# server = "INLT-F194ZC4\PRIMARY1"
+# database = "New"
+
+# connection_string = (
+#     "DRIVER={ODBC Driver 18 for SQL Server};"
+#     "SERVER=your-server,1433;"
+#     "Encrypt=yes;"
+#     f"SERVER={server};"
+#     f"DATABASE={database};"
+#     "Trusted_Connection=yes;"
+#     "Connection Timeout=30;"
+# )
+# params = urllib.parse.quote_plus(connection_string)
+# engine = create_engine(
+#     f"mssql+pyodbc:///?odbc_connect={params}"
+# )
+# dfm = df
+# dfm.to_sql("Superstore", 
+#     con=engine,
+#     if_exists="append",
+#     index=False)
 print("Data sent Successfully")

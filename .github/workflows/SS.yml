@@ -2,8 +2,8 @@ name: SS
 
 on:
   schedule:
-    # Runs every 10 mins from 3:30 PM–11:30 PM IST / 5:00 AM–1:00 PM EST (Mon–Fri)
-    - cron: "*/10 10-18 * * 1-5"
+  # Runs once a day at 10:00 PM IST (Mon-Fri)
+  - cron: "30 16 * * 1-5"
   workflow_dispatch:
 
 jobs:

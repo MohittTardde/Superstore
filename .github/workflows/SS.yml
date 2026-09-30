@@ -20,7 +20,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install pandas numpy sqlalchemy openpyxl create_engine os
+          pip install pandas numpy sqlalchemy openpyxl os
 
       - name: Run script
         # env:

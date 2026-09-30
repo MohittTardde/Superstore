@@ -68,7 +68,7 @@ server = "INLT-F194ZC4\PRIMARY1"
 database = "New"
 
 params = urllib.parse.quote_plus(
-    "DRIVER={ODBC Driver 17 for SQL Server};"
+    "DRIVER={ODBC Driver 18 for SQL Server};"
     f"SERVER={server};"
     f"DATABASE={database};"
     "Trusted_Connection=yes;"
